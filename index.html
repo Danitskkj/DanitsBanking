@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danits Banking - Depósitos</title>
+    <link rel="stylesheet" href="./main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap" rel="stylesheet">
+
+    
+</head>
+<body>
+    <div class="container">
+        <h1 align="center"><b>Danits Banking</b></h1>
+        <br><br>
+        <h2 id="saldo"><b>Saldo: R$ 10000.00</b></h2>
+        <h2>Realizar Depósito:</h2>
+        <form id="formDeposito">
+            <input type="text" required placeholder="Nome completo do beneficiário" id="nomeCompleto"/>
+            <p class="error-name">
+                O nome precisa estar completo!
+            </p>
+            <input type="number" required placeholder="Número da conta" id="numConta" min="0" />
+            <input type="number" required placeholder="Valor" id="valor" step="0.01" min="0" />
+            <textarea placeholder="Descrição (opcional)" id="descricao"></textarea>
+            <button type="submit" id="btnDepositar">Depositar</button>
+            <script src="main.js"></script>
+        </form>
+        <div id="ultimaTrans">
+            <b>Transações Recentes:</b>
+            <p class="sucess-message">
+            </p>
+        </div>  
+    </div>
+</body>
+</html>
