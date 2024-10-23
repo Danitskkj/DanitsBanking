@@ -9,10 +9,15 @@ function validarNome(nomeCompleto) {
 }
 
 function diminuirSaldo(saldoAtual, valorDeposito) {
-    let novoSaldo = (saldoAtual - valorDeposito);
-    const caixaSaldo = document.querySelector('#saldo');
-    caixaSaldo.innerHTML = `<b>Saldo: R$ ${novoSaldo.toFixed(2)}</b>`; 
-    return novoSaldo;  
+    if (saldoAtual >= valorDeposito) {
+        let novoSaldo = (saldoAtual - valorDeposito);
+        const caixaSaldo = document.querySelector('#saldo');
+        caixaSaldo.innerHTML = `<b>Saldo: R$ ${novoSaldo.toFixed(2)}</b>`;
+        return { novoSaldo: novoSaldo, sucesso: true }; 
+    } else {
+        alert('Saldo Insuficiente');
+        return { novoSaldo: saldoAtual, sucesso: false };
+    }
 }
 
 form.addEventListener('submit', function (e) {
@@ -25,16 +30,19 @@ form.addEventListener('submit', function (e) {
 
     formValido = validarNome(nomeBeneficiario.value);
     if (formValido) {
-        const containerMensagemSucesso = document.querySelector('.sucess-message');
-        containerMensagemSucesso.innerHTML = mensagemSucesso + containerMensagemSucesso.innerHTML;
-        containerMensagemSucesso.style.display = 'block';
+        const resultado = diminuirSaldo(saldoAtual, valorDeposito);
+        if (resultado.sucesso) {
+            saldoAtual = resultado.novoSaldo; // atualiza o saldo, caso a transação seja um sucesso
 
-        saldoAtual = diminuirSaldo(saldoAtual, valorDeposito);  
+            const containerMensagemSucesso = document.querySelector('.sucess-message');
+            containerMensagemSucesso.innerHTML = mensagemSucesso + containerMensagemSucesso.innerHTML;
+            containerMensagemSucesso.style.display = 'block';
 
-        // Limpar os campos
-        nomeBeneficiario.value = '';
-        numeroContaBeneficiario.value = '';
-        valorDepositoElement.value = '';
+            // Limpar os campos
+            nomeBeneficiario.value = '';
+            numeroContaBeneficiario.value = '';
+            valorDepositoElement.value = '';
+        }
     } else {
         document.querySelector('.error-name').style.display = 'block';
         nomeBeneficiario.style.border = '1px solid red';
