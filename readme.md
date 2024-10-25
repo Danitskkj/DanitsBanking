@@ -23,14 +23,16 @@ Veja a aplicação em funcionamento [aqui](https://danits-banking.vercel.app).
 
 ## Como Usar
 
-1. Clone o repositório ou baixe os arquivos.
-2. Abra o arquivo `index.html` em um navegador.
-3. Preencha os campos obrigatórios:
+1. Clone este repositório:
+    ```bash
+   git clone https://github.com/Danitskkj/DanitsBanking
+3. Abra o arquivo `index.html` em um navegador.
+4. Preencha os campos obrigatórios:
    - Nome do beneficiário
    - Número da conta
    - Valor do depósito
-4. Clique em "Depositar" para realizar a transação.
-5. O saldo será atualizado e exibido na tela. Se o saldo for insuficiente, uma mensagem de erro será exibida.
+5. Clique em "Depositar" para realizar a transação.
+6. O saldo será atualizado e exibido na tela. Se o saldo for insuficiente, uma mensagem de erro será exibida.
 
 ## Instalação
 
